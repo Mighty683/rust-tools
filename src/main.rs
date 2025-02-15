@@ -1,6 +1,9 @@
 mod bankpass;
+mod pomodoro;
 mod utils;
+
 use bankpass::bankpass_loop;
+use pomodoro::pomodoro_loop;
 use utils::get_input;
 
 fn main() {
@@ -10,8 +13,16 @@ fn main() {
         match command.trim() {
             "exit" => break,
             "bank" => bankpass_loop(),
-            "help" => println!("Commands: bank, exit, help"),
-            _ => println!("Invalid command!"),
+            "pomodoro" => pomodoro_loop(),
+            "help" => list_commands(),
+            _ => {
+                println!("Invalid command!");
+                list_commands();
+            }
         }
     }
+}
+
+fn list_commands() {
+    println!("Commands: bank, exit, pomodoro, help");
 }

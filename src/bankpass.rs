@@ -1,10 +1,12 @@
 use crate::utils::*;
 
 pub fn bankpass_loop() {
+    clear_screen();
     println!("Enter your bank password:");
     let password = get_hidden_inut();
     let mut index_array: Vec<usize> = Vec::new();
     loop {
+        clear_screen();
         println!("Enter character index to reveal, or type q to exit:");
         let new_index_string = get_input();
         if (new_index_string.trim() == "q") {

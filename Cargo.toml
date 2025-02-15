@@ -7,3 +7,4 @@ edition = "2021"
 clap = { version = "4.5.9", features = ["derive"] }
 termion = "4.0.2"
 termios = "0.3.3"
+rodio = "0.20.1"
