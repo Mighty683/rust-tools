@@ -6,8 +6,7 @@ use crate::utils::*;
 pub fn pomodoro_loop() {
     clear_screen();
     println!("Enter duration of work session in minutes:");
-    // let work_duration_secs: i32 = get_input().trim().parse::<i32>().unwrap() * 60;
-    let work_duration_secs: i32 = 5;
+    let work_duration_secs: i32 = get_input().trim().parse::<i32>().unwrap() * 60;
     clear_screen();
     println!("Enter duration of break session in minutes:");
     let break_duration_secs: i32 = get_input().trim().parse::<i32>().unwrap() * 60;
@@ -42,18 +41,17 @@ fn play_sound(duration_secs: f32, frequency: f32, amplitude: f32) {
         })
         .collect();
 
-    // Create a single-channel audio source from the samples.
     let source = SamplesBuffer::new(1, sample_rate, samples);
     sink.append(source);
     sink.sleep_until_end();
 }
 
 fn play_working_sound() {
-    play_sound(0.1, 800.0, 0.1);
+    play_sound(0.1, 300.0, 0.03);
 }
 
 fn play_break_sound() {
-    play_sound(0.1, 400.0, 0.1);
+    play_sound(0.1, 200.0, 0.03);
 }
 
 fn work_loop(work_duration_secs: i32) {
